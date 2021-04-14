@@ -92,6 +92,9 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    easy_translate (0.5.1)
+      thread
+      thread_safe
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.14.2)
@@ -204,6 +207,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.0.1)
+    thread (0.2.2)
+    thread_safe (0.3.6)
     tilt (2.0.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -243,6 +248,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   dotenv-rails
+  easy_translate
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
