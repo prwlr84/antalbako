@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Typed from 'typed.js';
 import { setLang } from '../actions';
-import Greet from '../../assets/greet';
+import Greet from '../components/greet';
 
 class Menu extends Component {
   log(){
