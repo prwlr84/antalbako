@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Typed from 'typed.js';
 import { setLang } from '../actions';
-import Menu from './menu';
-import Ranks from '../components/ranks';
+import Menu from './menu.jsx';
+import Ranks from '../components/ranks.jsx';
 import game from './game';
 
 class Main extends Component {

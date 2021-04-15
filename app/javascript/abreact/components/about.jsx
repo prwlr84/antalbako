@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Typed from 'typed.js';
 
 class About extends Component {
   componentDidMount(){

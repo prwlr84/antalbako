@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Typed from 'typed.js';
-import workList from '../../assets/work_list';
+import workList from './work_list';
 
 
 class Work extends Component {

@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { createHistory as history } from 'history';
+import { createBrowserHistory } from 'history';
 import { logger } from 'redux-logger';
 
-import '../assets/stylesheets/application.scss';
 import Main from './containers/main.jsx';
 import About from './components/about.jsx';
 import Work from './components/work.jsx';
@@ -40,5 +39,5 @@ ReactDOM.render(
       </Switch>
     </Router>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('portfolio_app')
 );
