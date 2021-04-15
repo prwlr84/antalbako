@@ -1,13 +1,149 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
-
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap");
+@import 'partials/about';
+@import 'partials/work';
+@import 'partials/connect';
+@import 'partials/egg';
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+div.app::-webkit-scrollbar, div.about::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100%;
+  min-height: 100%;
+}
+
+div.app {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: black;
+  color: red;
+  font-family: "Orbitron", sans-sherif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1{
+  font-family: "Orbitron", sans-sherif;
+
+  &:not(#typed):not(#workTitle):hover {
+      animation: icon3d 200ms infinite;
+  }
+  @keyframes icon3d {
+    0% {
+      text-shadow: 5px 4px rgba(0,0,0,1), -5px -6px rgba(255,255,255,1);
+    }
+    25% {
+      text-shadow: -5px -6px rgba(0,0,0,1), 5px 4px rgba(255,255,255,1);
+    }
+    50% {
+      text-shadow: 5px -4px rgba(0,0,0,1), -8px 4px rgba(255,255,255,1);
+    }
+    75% {
+      text-shadow: -8px -4px rgba(0,0,0,1), -5px -4px rgba(255,255,255,1);
+    }
+    100% {
+      text-shadow: -5px 0 rgba(0,0,0,1), 5px -4px rgba(255,255,255,1);
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  h1{
+    font-size: 24px;
+  }
+
+  div.main{
+    input {
+      display: none;
+    }
+  }
+
+}
+
+div.main {
+  margin: auto 1px;
+  width: inherit;
+
+  h1>p.hand>span {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 56px;
+  }
+
+  input{
+    background-color: black;
+    color: red;
+    border: none;
+    font-size: 36px;
+  }
+
+  input:focus{
+    outline: none;
+  }
+
+  button {
+    border: 1px solid red;
+    background-color: black;
+  }
+}
+
+$ease-out-quint:cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
+
+@keyframes turn-off{
+  0%{
+    transform:scale(1,1.3) translate3d(0,0,0);
+    -webkit-filter:brightness(1);
+    filter:brightness(1);
+    opacity:1;
+  }
+  60%{
+    transform:scale(1.3,0.001) translate3d(0,0,0);
+    -webkit-filter:brightness(10);
+    filter:brightness(10);
+  }
+  100%{
+    animation-timing-function:$ease-in-quint;
+    transform:scale(0.000,0.0001) translate3d(0,0,0);
+    -webkit-filter:brightness(50);
+    filter:brightness(50);
+  }
+}
+.screen{
+  width:100%;
+  height:100%;
+  border:none;
+}
+.chBox~.screen{
+  animation: turn-on 4s linear;
+  animation-fill-mode:forwards;
+}
+
+.chBox:checked~.screen{
+  background-color: white;
+  animation: turn-off 0.55s $ease-out-quint;
+  animation-fill-mode:forwards;
+}
+

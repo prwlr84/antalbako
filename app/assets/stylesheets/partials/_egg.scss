@@ -1,0 +1,59 @@
+div.egg{
+  cursor: url('https://res.cloudinary.com/prwlr84/image/upload/v1618200782/hammer_kfzyvq.png'), pointer;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 5;
+
+h5, h6 {
+  max-width: 10%;
+}
+
+  button{
+    max-width: 5vw;
+    background-color:black;
+    color:red;
+    border: 1px solid red;
+    outline: none;
+  }
+
+  img.eeLogo{
+    max-width: 5vw;
+    position: absolute;
+
+  }
+
+  div.ranks{
+    margin: 0 auto;
+    padding: 6%;
+    background-color: rgba(255,0,0,0.3);
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-height: auto;
+  }
+
+  h3{
+    margin: 0 auto;
+
+  }
+
+  ul{
+    margin: 0 auto;
+    display: contents;
+
+    li{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    p{
+      margin: 5%;
+    }
+  }
+}
