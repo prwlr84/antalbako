@@ -1,0 +1,134 @@
+.fade-out{
+  opacity:0
+}
+
+.fade-in{
+  opacity:1
+}
+
+h2.conh2{
+  margin:5% auto;
+}
+
+div.app{
+  h2.button2{
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+  h2.button2-mob{
+    margin: 0;
+    position: fixed;
+    bottom: 55px;
+    left: -50px;
+    transform: rotate(90deg);
+    color: red;
+    opacity: 0.3;
+  }
+}
+
+div.connect{
+  margin-top: 5%;
+  flex-direction: column;
+  font-family: "Orbitron", sans-sherif;
+  color: red;
+  background-color: transparent;
+  overflow: visible;
+  position: fixed;
+  width: 90%;
+  align-items: center;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+
+  div.frame3{
+    margin: 20px auto;
+
+    background: linear-gradient(175deg, rgba(0, 0, 0, 0) 40%, black 72%, red 92%);
+
+    &:hover{
+      background: linear-gradient(175deg, red 8%, black 28%, rgba(0, 0, 0, 0) 60%);
+      transition: none;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+
+  div.col-sm-6{
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.social {
+    display: flex;
+    flex-direction: column;
+
+    div{
+      display: flex;
+      justify-content: space-evenly;
+
+      .icon {
+        padding: 20px;
+        color: red;
+      }
+      .icon:hover {
+          animation: icon3d 200ms infinite;
+      }
+      @keyframes icon3d {
+        0% {
+          text-shadow: 5px 4px rgba(0,0,0,1), -5px -6px rgba(255,255,255,1);
+        }
+        25% {
+          text-shadow: -5px -6px rgba(0,0,0,1), 5px 4px rgba(255,255,255,1);
+        }
+        50% {
+          text-shadow: 5px -4px rgba(0,0,0,1), -8px 4px rgba(255,255,255,1);
+        }
+        75% {
+          text-shadow: -8px -4px rgba(0,0,0,1), -5px -4px rgba(255,255,255,1);
+        }
+        100% {
+          text-shadow: -5px 0 rgba(0,0,0,1), 5px -4px rgba(255,255,255,1);
+        }
+      }
+    }
+  }
+
+  form {
+    margin: 0 auto;
+    width: 80%;
+
+    div.frame3:not(div.frame3:last-of-type) {
+      width: 100%;
+      }
+
+    input, textarea{
+      background-color: black;
+      color: red;
+      border: none;
+      width: 100%;
+
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 575px) {
+  h2.button2 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  h2.button2-mob {
+    display: none;
+  }
+}
+
+
