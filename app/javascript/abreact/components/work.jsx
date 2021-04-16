@@ -93,7 +93,7 @@ class Work extends Component {
 
   list(){
     return(
-      <div className="col-sm-6 order-sm-1" id="list">
+      <div className="col-sm-6" id="list">
         {workList.map(e => {return(
           <div key={e.name} className="frame3">
             <img src={e.img} alt="" onClick={() => this.toggleList(e.name)} />
@@ -112,7 +112,7 @@ class Work extends Component {
   detail(name){
     const current = workList.find(e => e.name === name);
     return(
-      <div className="col-sm-6 order-sm-1" id="detail">
+      <div className="col-sm-6" id="detail">
         <div className="frame">
           <h1>{current.name}</h1>
           <h3 onClick={() => this.redirect(current.url)}>{current.url}</h3>
@@ -144,7 +144,7 @@ class Work extends Component {
         <div className="app screen">
           <h1 className="title">Work</h1>
           <div className="work row">
-            <div className="col-sm-6 order-sm-2">
+            <div className="col-sm-6">
               <h1 id='workTitle'>Have a look around!</h1>
             </div>
             {this.state.list ? this.list() : this.detail(this.state.current)}

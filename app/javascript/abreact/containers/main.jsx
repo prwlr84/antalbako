@@ -16,9 +16,11 @@ class Main extends Component {
   }
 
   stater(x){
-    console.log(x)
-    this.setState({rank: !this.state.rank, score: x});
-    console.log(this.state);
+    if (x > 0){
+      this.setState({rank: true, score: x});
+    } else if (x === 0){
+      this.setState({rank: false, score: x});
+    };
   }
 
   componentDidMount(){
@@ -65,9 +67,9 @@ class Main extends Component {
 
     this.props.setLang(this.props.ip);
 
-    setTimeout(()=>{document.querySelector('.x').addEventListener('mouseover', () => {document.querySelector('.x').style.opacity = '0.5'})}, 6000);
-    setTimeout(()=>{document.querySelector('.x').addEventListener('mouseout', () => {document.querySelector('.x').style.opacity = '1'})}, 6000);
-    setTimeout(()=>{document.querySelector('.x').addEventListener('click', () => {game(this.stater)})}, 6000);
+    setTimeout(()=>{document.querySelector('.x').addEventListener('mouseover', () => {document.querySelector('.x').style.opacity = '0.5'})}, 9000);
+    setTimeout(()=>{document.querySelector('.x').addEventListener('mouseout', () => {document.querySelector('.x').style.opacity = '1'})}, 9000);
+    setTimeout(()=>{document.querySelector('.x').addEventListener('click', () => {game(this.stater)})}, 9000);
   }
 
   render() {

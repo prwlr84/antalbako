@@ -35,7 +35,7 @@ const game = (callback) => {
     }
 
     function timer(){
-        let sixty = 10;
+        let sixty = 60;
         const loop = function() {
           console.log(score);
           parseInt(timeDisp.textContent) > 0 ? timeDisp.textContent = sixty : 0;
@@ -52,8 +52,8 @@ const game = (callback) => {
         interval = setInterval(loop, 1000);
     };
 
-    startB.addEventListener('click', () => {init();timer()});
-    exitB.addEventListener('click', ()=>{clearInterval(interval); hide(egg)});
+    startB.addEventListener('click', () => {init();timer();callback(0)});
+    exitB.addEventListener('click', ()=>{clearInterval(interval); hide(egg); callback(0)});
 
 }
 

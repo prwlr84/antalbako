@@ -10,6 +10,7 @@ div.egg{
   background-color: rgba(0,0,0,0.9);
   z-index: 5;
 
+
 h5, h6 {
   max-width: 10%;
 }
@@ -36,11 +37,25 @@ h5, h6 {
     justify-content: center;
     text-align: center;
     min-height: auto;
+
+    input{
+      color: red;
+      background-color: black;
+      margin: 3%;
+      border: 1px solid red;
+
+      &:focus{
+        outline: 1px solid black;
+      }
+    }
   }
 
   h3{
     margin: 0 auto;
+  }
 
+  h2{
+    margin-bottom: 10%;
   }
 
   ul{
@@ -55,5 +70,15 @@ h5, h6 {
     p{
       margin: 5%;
     }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  div.egg img.eeLogo {
+    min-width: 15vw;
+  }
+
+  div.egg button{
+    max-width: 20vw;
   }
 }

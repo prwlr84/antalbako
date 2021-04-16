@@ -6,7 +6,7 @@ class Ranks extends Component {
     if(this.props.score > x[x.length-1].point){
       return(
         <div>
-          <h1>Congrats! That's in the best 10! Please, add your details to the hall of fame:</h1>
+          <h1 id="ranksTitle">Congrats! That's in the best 10! Please, add your details to the hall of fame:</h1>
           <form action="">
             <input type="text" placeholder="Name"/>
             <input type="text" placeholder="Country"/>
@@ -25,8 +25,8 @@ class Ranks extends Component {
         {this.record(fakerank)}
         <h3>The best scores:</h3>
         <ul>
-        {fakerank.sort().map(data => {return(
-          <li key='data.name'>
+        {fakerank.sort().map((data, index) => {return(
+          <li key={index}>
             <p>{data.name}</p>
             <p>{data.point}</p>
             <p>{data.address}</p>

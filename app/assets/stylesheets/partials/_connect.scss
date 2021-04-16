@@ -120,6 +120,15 @@ div.connect{
 
 
 @media only screen and (max-width: 575px) {
+  div.connect {
+    margin: 20% auto;
+    position: absolute;
+    background-color: black;
+    &>*{
+      text-align: center;
+    }
+  }
+
   h2.button2 {
     display: none;
   }
