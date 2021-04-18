@@ -1,1 +1,1 @@
-import '../abreact/index.jsx';
+import '../abreact/index.jsx'

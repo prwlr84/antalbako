@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import fakerank from './fakerank';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Ranks extends Component {
   record(x){
-    if(this.props.score > x[x.length-1].point){
+    console.log(this.props.ranks);
+    if(this.props.score > x[x.length-1].score){
       return(
         <div>
           <h1 id="ranksTitle">Congrats! That's in the best 10! Please, add your details to the hall of fame:</h1>
@@ -22,14 +25,14 @@ class Ranks extends Component {
     return(
       <div className="ranks col-12 col-sm-6">
         <h2>{word[Math.floor(Math.random() * word.length)]}! You got {this.props.score} points!</h2>
-        {this.record(fakerank)}
+        {this.record(this.props.ranks)}
         <h3>The best scores:</h3>
         <ul>
-        {fakerank.sort().map((data, index) => {return(
+        {this.props.ranks.sort().map((data, index) => {return(
           <li key={index}>
+            <p>{data.score}</p>
             <p>{data.name}</p>
-            <p>{data.point}</p>
-            <p>{data.address}</p>
+            <p>{data.country}</p>
           </li>
         )})}
         </ul>
@@ -38,4 +41,10 @@ class Ranks extends Component {
   }
 }
 
-export default Ranks;
+function mapStateToProps(state) {
+ return {
+ ranks: state.ranks
+ };
+}
+
+export default connect(mapStateToProps, null)(Ranks);
