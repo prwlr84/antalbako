@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import workList from './work_list';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 class Work extends Component {
@@ -94,7 +96,7 @@ class Work extends Component {
   list(){
     return(
       <div className="col-sm-6" id="list">
-        {workList.map(e => {return(
+        {this.props.work.map(e => {return(
           <div key={e.name} className="frame3">
             <img src={e.img} alt="" onClick={() => this.toggleList(e.name)} />
             <h3 onClick={() => this.toggleList(e.name)}>{e.name}</h3>
@@ -110,14 +112,14 @@ class Work extends Component {
     }
 
   detail(name){
-    const current = workList.find(e => e.name === name);
+    const current = this.props.work.find(e => e.name === name);
     return(
       <div className="col-sm-6" id="detail">
         <div className="frame">
           <h1>{current.name}</h1>
           <h3 onClick={() => this.redirect(current.url)}>{current.url}</h3>
           <img src={current.img} alt=""/>
-          {current.desc.map(e => {return(<h4 key={e}>{e}</h4>)})}
+          {JSON.parse(current.desc).map(e => {return(<h4 key={e}>{e}</h4>)})}
           <br/>
           <h5 onClick={() => this.toggleList("")}>GO BACK</h5>
         </div>
@@ -161,5 +163,11 @@ class Work extends Component {
   }
 }
 
-export default Work;
+function mapStateToProps(state) {
+ return {
+ work: state.work
+ };
+}
+
+export default connect(mapStateToProps, null)(Work);
 
