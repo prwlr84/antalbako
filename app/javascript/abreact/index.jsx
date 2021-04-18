@@ -13,12 +13,13 @@ import Work from './components/work.jsx';
 import Connect from './components/connect.jsx';
 import langReducer from './reducers/lang_reducer.js';
 
+const app = document.querySelector('#portfolio_app');
 const initialState = {
   //ip: JSON.parse(app.dataset.ip),
-  //ip: '5.38.128.0',
   //ip: '170.253.46.238',
-  ip: '2.16.8.255',
-  lang: ""
+  ip: '130',
+  //ip: '2.16.8.255',
+  lang: ''
 }
 const reducers = combineReducers({
   ip: (state = null, action) => state,

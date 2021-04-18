@@ -6,24 +6,21 @@ import { setLang } from '../actions';
 import Greet from '../components/greet';
 
 class Menu extends Component {
-  log(){
-      console.log('asdfgasdgasdg');
-    }
-
   componentDidMount(){
-    const greet = Greet.filter(e => e.symbol === this.props.lang);
+    let greet = Greet.filter(e => e.symbol === this.props.lang);
+    let insert = greet[0] === undefined ? "Welcome here" : greet[0].text;
 
-      let typed = new Typed('#typed', {
-        strings: [
-        `<p>${greet[0].text}!</p>^500\n<p class='hand'>I'm <span><span class="x">A</span>ntal Bako</span></p>^500\n<p>Full Stack Web Developer</p>^500\n<p>Please, choose from the following:</p>^500\n<p class="opt1">1 | About</p>^500\n<p class="opt2">2 | Work</p>^500\n<p class="opt3">3 | Connect</p>^500\n<input type="text" autofocus  />`],
-        typeSpeed: 20,
-        loop: false,
-        showCursor: false
-      });
+    let typed = new Typed('#typed', {
+      strings: [
+      `<p>${insert}!</p>^500\n<p class='hand'>I'm <span><span class="x">A</span>ntal Bako</span></p>^500\n<p>Full Stack Web Developer</p>^500\n<p>Please, choose from the following:</p>^500\n<p class="opt1">1 | About</p>^500\n<p class="opt2">2 | Work</p>^500\n<p class="opt3">3 | Connect</p>^500\n<input type="text" autofocus  />`],
+      typeSpeed: 20,
+      loop: false,
+      showCursor: false
+    });
   }
 
     componentWillUnmount() {
-      this.typed.destroy();
+      this.typed ? this.typed.destroy() : null;
     }
 
   render() {

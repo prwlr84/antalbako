@@ -74,7 +74,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div><input className="chBox" type="checkbox"  style={{display: 'none'}}/>
+      <div><input className="chBox" type="checkbox"  hidden/>
         <div className="app row screen">
           <div className="egg">
             <h5></h5>
