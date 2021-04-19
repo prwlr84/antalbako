@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 class Ranks extends Component {
   record(x){
     console.log(this.props.ranks);
-    if(this.props.score > x[x.length-1].score){
+    //if(this.props.score > x[x.length-1].score){
       return(
         <div>
           <h1 id="ranksTitle">Congrats! That's in the best 10! Please, add your details to the hall of fame:</h1>
-          <form action="">
+          <form action="/pages?country=HUNGARY&name=Antal&score=10000" method="POST">
             <input type="text" placeholder="Name"/>
             <input type="text" placeholder="Country"/>
             <input type="submit"/>
           </form>
         </div>
       )
-    }
+    //}
   }
 
   render(){
