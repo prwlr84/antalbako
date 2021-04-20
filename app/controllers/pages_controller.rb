@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 
   def home
     gon.ip = request.remote_ip
-    gon.ranks = Rank.all.order("score DESC")
-    gon.work = Work.all
+    gon.watch.ranks = Rank.all.order("score DESC")
+    gon.watch.work = Work.all
   end
 
   def create
