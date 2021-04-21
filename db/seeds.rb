@@ -30,4 +30,4 @@ work = Work.create(
     desc: ["Garage management application.", "React, Redux with ExpressJS backend"]}
   ])
 
-ranks = 10.times{Rank.create(score: rand(1000), name: Faker::Name.unique.name, country: Faker::Address.country)}
+#ranks = 10.times{Rank.create(score: rand(1000), name: Faker::Name.unique.name, country: Faker::Address.country)}
