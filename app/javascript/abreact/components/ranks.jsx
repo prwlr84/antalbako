@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 class Ranks extends Component {
   constructor(props){
     super(props);
-    this.state = { upD: false, ranks:[] };
+    this.state = { upD: false, ranks:gon.ranks };
 
     this.record = this.record.bind(this);
   }
@@ -18,8 +15,14 @@ class Ranks extends Component {
       const coun = document.querySelector('input[name="country"]').value;
 
       form.action = `http://localhost:3000/pages?country=${coun}&name=${name}&score=${z.props.score}`;
+      console.log(z.state, 3);
       z.setState({upD: true});
-    }
+      fetch('http://localhost:3000/pages/1/ranks')
+        .then(r=>r.json())
+        .then(json => {z.setState({ranks: json, upD: false});console.log(z.state, 3.5);})
+      console.log(z.state, 4);
+      }
+
 
     return(
       <div>
@@ -45,40 +48,33 @@ class Ranks extends Component {
     )})
   )}
 
+componentDidMount(){
+    console.log(this.state, 2)
+}
 
 
   componentDidUpdate(prevState) {
     // Typical usage (don't forget to compare props):
-    const ul = document.querySelector('ul');
-    if (this.state.upD === true) {
-    fetch('http://localhost:3000/pages/1/ranks')
-      .then(r=>r.json())
-      .then(json => {ul.innerHTML = this.list(json); console.log(this.list(json));})
-    this.setState({upD: false});
-    }
+    console.log((this.state.upD !== prevState.upD));
+    if (this.state.upD !== prevState.upD) {
+    console.log(this.state, 6);
   }
-
+ }
   render(){
     const word = [ "Awesome", "Fascinating", "Incredible", "Marvelous", "Shocking", "Stunning", "Surprising", "Unbelievable", "Wonderful",  "Prodigious" ];
-    let ranksStatic = this.props.ranks;
-    console.log(this.state);
+    const ranks = this.state.ranks
+    console.log(this.state, 1)
     return(
       <div className="ranks col-12 col-sm-6">
         <h2>{word[Math.floor(Math.random() * word.length)]}! You got {this.props.score} points!</h2>
-        {ranksStatic.length < 10 ? this.record() : ((this.props.score > ranksStatic[ranksStatic.length-1]) ? this.record() : null)}
+        {ranks.length < 10 ? this.record() : ((this.props.score > ranks[ranks.length-1]) ? this.record() : null)}
         <h3>The best scores:</h3>
         <ul>
-        {this.list(ranksStatic)}
+        {this.list(this.state.ranks)}
         </ul>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
- return {
- ranks: state.ranks
- };
-}
-
-export default connect(mapStateToProps, null)(Ranks);
+export default Ranks;

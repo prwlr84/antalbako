@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setLang } from '../actions';
 import Menu from './menu.jsx';
-import Ranks from './ranks.jsx';
+import Ranks from '../components/ranks.jsx';
 import game from '../actions/game';
 
 class Main extends Component {
