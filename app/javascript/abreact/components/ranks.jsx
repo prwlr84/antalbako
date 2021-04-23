@@ -3,33 +3,41 @@ import React, { Component } from 'react';
 class Ranks extends Component {
   constructor(props){
     super(props);
-    this.state = { upD: false, ranks:gon.ranks };
+    this.state = {
+      upD: false,
+      ranks:[],
+      country: "Country"
+    }
 
     this.record = this.record.bind(this);
+    this.postrank = this.postrank.bind(this);
+    this.getNewRanks = this.getNewRanks.bind(this);
+  }
+
+  postrank(){
+    const form = document.querySelector('#rankForm');
+    const name = document.querySelector('input[name="name"]').value;
+    const coun = document.querySelector('input[name="country"]').value;
+
+    form.action = `http://localhost:3000/pages?country=${coun}&name=${name}&score=${this.props.score}`;
+    document.querySelector('#recordForm').style.display = 'none';
+    document.querySelector("#congrats").style.display = 'none';
+    setTimeout(this.getNewRanks, 1000);
+  }
+
+  async getNewRanks(){
+    const newrank  = await fetch('http://localhost:3000/pages/1/ranks')
+      .then(r=>r.json());
+    this.setState({ranks: newrank});
   }
 
   record(){
-    function postrank(z){
-      const form = document.querySelector('#rankForm');
-      const name = document.querySelector('input[name="name"]').value;
-      const coun = document.querySelector('input[name="country"]').value;
-
-      form.action = `http://localhost:3000/pages?country=${coun}&name=${name}&score=${z.props.score}`;
-      console.log(z.state, 3);
-      z.setState({upD: true});
-      fetch('http://localhost:3000/pages/1/ranks')
-        .then(r=>r.json())
-        .then(json => {z.setState({ranks: json, upD: false});console.log(z.state, 3.5);})
-      console.log(z.state, 4);
-      }
-
-
     return(
-      <div>
+      <div id='recordForm'>
         <h1 id="ranksTitle">Congrats! That's in the best 10! Please, add your details to the hall of fame:</h1>
-        <form id='rankForm' onSubmit={() => {postrank(this)}} method='POST'>
+        <form id='rankForm' onSubmit={this.postrank} method='POST'>
           <input type="text" name='name' placeholder="Name"/>
-          <input type="text" name='country' placeholder="Country"/>
+          <input type="text" name='country' placeholder={this.state.country}/>
           <input type="submit"/>
         </form>
       </div>
@@ -48,26 +56,22 @@ class Ranks extends Component {
     )})
   )}
 
-componentDidMount(){
-    console.log(this.state, 2)
-}
-
-
-  componentDidUpdate(prevState) {
-    // Typical usage (don't forget to compare props):
-    console.log((this.state.upD !== prevState.upD));
-    if (this.state.upD !== prevState.upD) {
-    console.log(this.state, 6);
+  async componentDidMount(){
+    const rank  = await fetch('/pages/1/ranks')
+      .then(r=>r.json());
+    const country = await fetch(`http://api.ipstack.com/${this.props.ip}?access_key=49ceea9b1409ef0c0674effff735b5bd&format=1`)
+      .then(r=>r.json())
+      .then(json => {return json.country_name ? json.country_name : "Country"});
+    this.setState({ranks: rank, country: country});
   }
- }
+
   render(){
-    const word = [ "Awesome", "Fascinating", "Incredible", "Marvelous", "Shocking", "Stunning", "Surprising", "Unbelievable", "Wonderful",  "Prodigious" ];
+    const word = [ "Awesome", "Fascinating", "Incredible", "Marvelous", "Shocking", "Stunning", "Surprising", "Unbelievable", "Wonderful" ];
     const ranks = this.state.ranks
-    console.log(this.state, 1)
     return(
       <div className="ranks col-12 col-sm-6">
-        <h2>{word[Math.floor(Math.random() * word.length)]}! You got {this.props.score} points!</h2>
-        {ranks.length < 10 ? this.record() : ((this.props.score > ranks[ranks.length-1]) ? this.record() : null)}
+        <h2 id="congrats">{word[Math.floor(Math.random() * word.length)]}! You got {this.props.score} points!</h2>
+        {ranks.length < 10 ? this.record() : ((this.props.score > ranks[ranks.length-1].score) ? this.record() : null)}
         <h3>The best scores:</h3>
         <ul>
         {this.list(this.state.ranks)}

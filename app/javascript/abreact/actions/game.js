@@ -35,7 +35,7 @@ const game = (callback) => {
     }
 
     function timer(){
-        let sixty = 5;
+        let sixty = 60;
         const loop = function() {
           console.log(score);
           parseInt(timeDisp.textContent) > 0 ? timeDisp.textContent = sixty : 0;

@@ -17,7 +17,6 @@ class PagesController < ApplicationController
   def create
     @rank = Rank.new(rank_params)
     @rank.save
-    puts Rank.last.name
   end
 
   private

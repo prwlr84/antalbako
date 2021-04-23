@@ -84,7 +84,7 @@ class Main extends Component {
             <button>EXIT</button>
             <img className="eeLogo logo1"src="https://res.cloudinary.com/prwlr84/image/upload/v1617774649/react_zvssgr.svg" alt="" style={{display: 'none'}}/>
             <img className="eeLogo logo2"src="https://res.cloudinary.com/prwlr84/image/upload/v1617774649/rails_sr3jog.svg" alt="" style={{display: 'none'}}/>
-            {this.state.rank === true ? <Ranks score={this.state.score} /> : null}
+            {this.state.rank === true ? <Ranks score={this.state.score} ip={this.props.ip}/> : null}
           </div>
           <div className="main col-12 col-sm-6">
             { this.props.lang ? <Menu /> : <h1>Loading...</h1> }

@@ -1,5 +1,5 @@
 div.egg{
-  cursor: url('https://res.cloudinary.com/prwlr84/image/upload/v1618200782/hammer_kfzyvq.png'), pointer;
+  cursor: url('https://res.cloudinary.com/prwlr84/image/upload/v1618200782/hammer_kfzyvq.png') 10 0, pointer;
   display: none;
   flex-direction: column;
   position: absolute;
@@ -37,6 +37,7 @@ h5, h6 {
     justify-content: center;
     text-align: center;
     min-height: auto;
+    transition: all .5s ease-in-out;
 
     input{
       color: red;
@@ -46,6 +47,8 @@ h5, h6 {
 
       &:focus{
         outline: 1px solid black;
+        background-color: black;
+        color: red;
       }
     }
   }
