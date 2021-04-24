@@ -36,8 +36,8 @@ class Ranks extends Component {
       <div id='recordForm'>
         <h1 id="ranksTitle">Congrats! That's in the best 10! Please, add your details to the hall of fame:</h1>
         <form id='rankForm' onSubmit={this.postrank} method='POST'>
-          <input type="text" name='name' placeholder="Name"/>
-          <input type="text" name='country' placeholder={this.state.country}/>
+          <input type="text" name='name' placeholder="Name" required="required"/>
+          <input type="text" name='country' placeholder={this.state.country} required="required"/>
           <input type="submit"/>
         </form>
       </div>
