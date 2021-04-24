@@ -89,6 +89,16 @@ class Connect extends Component {
 
  }
 
+  sendmail(){
+    const form = document.querySelector('#emailForm');
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const subject = document.querySelector('input[name="subject"]').value;
+    const message = document.querySelector('input[name="message"]').value;
+
+    form.action = `http://localhost:3000/pages?subject=${subject}&name=${name}&email=${email}&message=${message}`;
+  }
+
   render(){
     return(
       <div>
@@ -98,11 +108,11 @@ class Connect extends Component {
           <div className="connect row">
             <div className="col-sm-6">
               <h2 className="conh2">Wanna reach out? Send me an e-mail!</h2>
-              <form action="">
-                <div className="frame3"><input type="text" placeholder="Name"/></div>
-                <div className="frame3"><input type="email" placeholder="E-mail"/></div>
-                <div className="frame3"><input type="text" placeholder="Subject"/></div>
-                <div className="frame3"><textarea placeholder="Here comes the message"/></div>
+              <form id="emailForm">
+                <div className="frame3"><input type="text" placeholder="Name" name="name" required="required"/></div>
+                <div className="frame3"><input type="email" placeholder="E-mail" name="email" required="required"/></div>
+                <div className="frame3"><input type="text" placeholder="Subject" name="subject"/></div>
+                <div className="frame3"><textarea placeholder="Here comes your sweet message" name="message"required="required"/></div>
                 <div className="frame3"><input type="submit"/></div>
               </form>
               <div className="social">
