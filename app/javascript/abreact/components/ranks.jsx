@@ -19,14 +19,14 @@ class Ranks extends Component {
     const name = document.querySelector('input[name="name"]').value;
     const coun = document.querySelector('input[name="country"]').value;
 
-    form.action = `http://localhost:3000/pages?country=${coun}&name=${name}&score=${this.props.score}`;
+    form.action = `http://antalbako.codes/pages?country=${coun}&name=${name}&score=${this.props.score}`;
     document.querySelector('#recordForm').style.display = 'none';
     document.querySelector("#congrats").style.display = 'none';
     setTimeout(this.getNewRanks, 1000);
   }
 
   async getNewRanks(){
-    const newrank  = await fetch('http://localhost:3000/pages/1/ranks')
+    const newrank  = await fetch('http://antalbako.codes/pages/1/ranks')
       .then(r=>r.json());
     this.setState({ranks: newrank});
   }
