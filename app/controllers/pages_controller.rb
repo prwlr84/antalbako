@@ -20,13 +20,13 @@ class PagesController < ApplicationController
 
   def mail
     @mail = Mail.new(mail_params)
-    @mail.deliver
+    @mail.request = request
 
     if @mail.deliver
       # re-initialize Home object for cleared form
       redirect_to root_path, notice: "Thanks for Your mail!"
     else
-      redirect_to "/connect", alert: "Something went wrong! Try again!"
+      redirect_to "/500.html", alert: "Something went wrong! Try again!"
     end
   end
 
