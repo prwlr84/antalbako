@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def mail
     @mail = Mail.new(mail_params)
-    @mail.request = request
+    @mail.deliver
 
     if @mail.deliver
       # re-initialize Home object for cleared form
