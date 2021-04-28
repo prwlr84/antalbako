@@ -6,6 +6,7 @@ import { setLang } from '../actions';
 import Menu from './menu.jsx';
 import Ranks from '../components/ranks.jsx';
 import game from '../actions/game';
+import redirect from '../actions/redirect';
 
 class Main extends Component {
   constructor(props){
@@ -24,43 +25,6 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    async function redirect(keycode){
-      switch(keycode){
-        case 49:
-        document.querySelector('.chBox').click();
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/about';
-        break;
-        case 50:
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/work';
-        break;
-        case 51:
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/connect';
-        break;
-        case document.querySelector('.opt1'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/about';
-        break;
-        case document.querySelector('.opt2'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/work';
-        break;
-        case document.querySelector('.opt3'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/connect';
-        break;
-      default:
-        return null;
-      }
-    }
-
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
 
     window.addEventListener('click', e => {redirect(e.target), false });
@@ -70,6 +34,9 @@ class Main extends Component {
     setTimeout(()=>{document.querySelector('.x').addEventListener('mouseover', () => {document.querySelector('.x').style.opacity = '0.5'})}, 9000);
     setTimeout(()=>{document.querySelector('.x').addEventListener('mouseout', () => {document.querySelector('.x').style.opacity = '1'})}, 9000);
     setTimeout(()=>{document.querySelector('.x').addEventListener('click', () => {game(this.stater)})}, 9000);
+    window.onload = function(){
+      setTimeout(()=>{document.querySelector('.eggflash').style.display = 'none'}, 3000);
+    }
   }
 
   render() {
@@ -89,6 +56,7 @@ class Main extends Component {
           <div className="main col-12 col-sm-6">
             { this.props.lang ? <Menu /> : <h1>Loading...</h1> }
           </div>
+          <div class='eggflash' style={{backgroundColor: 'rgba(255,0,0,0.3)', color: 'red', position: 'absolute', right: '5%', bottom: '5%', padding: '1%'}}>UP FOR A! EASTER EGG HUNT</div>
         </div>
       </div>
     );

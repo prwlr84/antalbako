@@ -1,76 +1,12 @@
 import React, { Component } from 'react';
+import redirect from '../actions/redirect';
+import buttonTyper from '../actions/button_typer';
 
 class About extends Component {
   componentDidMount(){
-    async function redirect(keycode){
-      switch(keycode){
-        case 48:
-        document.querySelector('.chBox').click();
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/';
-        break;
-        case 50:
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/work';
-        break;
-        case 51:
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/connect';
-        break;
-        case document.querySelector('.button0'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/';
-        break;
-        case document.querySelector('.button2'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/work';
-        break;
-        case document.querySelector('.button3'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/connect';
-        break;
-        case document.querySelector('.button0-mob'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/';
-        break;
-        case document.querySelector('.button2-mob'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/work';
-        break;
-        case document.querySelector('.button3-mob'):
-        document.querySelector('.chBox').click()
-        await new Promise(r => setTimeout(r, 1000));
-        document.location.href = '/connect';
-        break;
-      default:
-        return null;
-      }
-    }
 
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
-
     window.addEventListener('click', e => {redirect(e.target), false});
-
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function buttonTyper(string,element){
-      let word = '';
-      for (var i = 0; i < string.length; i++) {
-        word = word + string[i];
-        element.innerHTML = word;
-        await sleep(50);
-      }
-    };
-
 
     document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
     document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
