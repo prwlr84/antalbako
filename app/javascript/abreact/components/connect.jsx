@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import redirect from '../actions/redirect';
+import buttonTyper from '../actions/button_typer';
 
 class Connect extends Component {
   constructor(props) {
@@ -10,84 +12,16 @@ class Connect extends Component {
 
 
   componentDidMount(){
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function redirect(keycode){
-      switch(keycode){
-        case 48:
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/';
-        break;
-        case 49:
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/about';
-        break;
-        case 50:
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/work';
-        break;
-        case document.querySelector('.button0'):
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/';
-        break;
-        case document.querySelector('.button1'):
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/about';
-        break;
-        case document.querySelector('.button2'):
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/work';
-        break;
-        case document.querySelector('.button0-mob'):
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/';
-        break;
-        case document.querySelector('.button1-mob'):
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/about';
-        break;
-        case document.querySelector('.button2-mob'):
-        document.querySelector('.chBox').click();
-        await sleep(1000);
-        document.location.href = '/work';
-        break;
-      default:
-        return null;
-      }
-    }
-
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
-
     window.addEventListener('click', e => {redirect(e.target), false});
 
-    async function buttonTyper(string,element){
-      let word = '';
-      for (var i = 0; i < string.length; i++) {
-        word = word + string[i];
-        element.innerHTML = word;
-        await sleep(50);
-      }
-    };
-
-
-  document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
-  document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
-  document.querySelector('.button1').addEventListener('mouseover', ()=> {buttonTyper('1|ABOUT', document.querySelector('.button1') )});
-  document.querySelector('.button1').addEventListener('mouseout', ()=> {document.querySelector('.button1').innerHTML = '1'});
-  document.querySelector('.button2').addEventListener('mouseover', ()=> {buttonTyper('2|WORK', document.querySelector('.button2') )});
-  document.querySelector('.button2').addEventListener('mouseout', ()=> {document.querySelector('.button2').innerHTML = '2'});
-
- }
+    document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
+    document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
+    document.querySelector('.button1').addEventListener('mouseover', ()=> {buttonTyper('1|ABOUT', document.querySelector('.button1') )});
+    document.querySelector('.button1').addEventListener('mouseout', ()=> {document.querySelector('.button1').innerHTML = '1'});
+    document.querySelector('.button2').addEventListener('mouseover', ()=> {buttonTyper('2|WORK', document.querySelector('.button2') )});
+    document.querySelector('.button2').addEventListener('mouseout', ()=> {document.querySelector('.button2').innerHTML = '2'});
+  }
 
   sendmail(){
     const form = document.querySelector('#emailForm');
@@ -96,7 +30,7 @@ class Connect extends Component {
     const subject = document.querySelector('input[name="subject"]').value;
     const message = document.querySelector('input[name="message"]').value;
 
-    form.action = `http://antalbako.codes/pages/:page_id/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
+    form.action = `http://antalbako.codes/pages/1/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
   }
 
   render(){
@@ -113,14 +47,14 @@ class Connect extends Component {
                 <div className="frame3"><input type="email" placeholder="E-mail" name="email" required="required"/></div>
                 <div className="frame3"><input type="text" placeholder="Subject" name="subject"/></div>
                 <div className="frame3"><textarea placeholder="Here comes your sweet message" name="message"required="required"/></div>
-                <div className="frame3"><input type="submit"/></div>
+                <div className="frame3"><input type="submit" value="Send it!"/></div>
               </form>
               <div className="social">
                 <h2 className="conh2">Or find me on the usual platforms:</h2>
                 <div>
-                  <i className="fab fa-github fa-3x icon"></i>
-                  <i className="fab fa-linkedin fa-3x icon"></i>
-                  <i className="fab fa-strava fa-3x icon"></i>
+                  <a href="https://github.com/prwlr84"><i className="fab fa-github fa-3x icon"></i></a>
+                  <a href="https://www.linkedin.com/in/antalbako/"><i className="fab fa-linkedin fa-3x icon"></i></a>
+                  <a href="https://www.strava.com/athletes/21878225"><i className="fab fa-strava fa-3x icon"></i></a>
                 </div>
               </div>
             </div>

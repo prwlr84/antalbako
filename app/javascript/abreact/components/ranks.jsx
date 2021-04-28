@@ -22,7 +22,7 @@ class Ranks extends Component {
     form.action = `http://antalbako.codes/pages?country=${coun}&name=${name}&score=${this.props.score}`;
     document.querySelector('#recordForm').style.display = 'none';
     document.querySelector("#congrats").style.display = 'none';
-    setTimeout(this.getNewRanks, 1000);
+    setTimeout(this.getNewRanks, 2000);
   }
 
   async getNewRanks(){
