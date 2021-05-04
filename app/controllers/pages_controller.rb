@@ -13,22 +13,28 @@ class PagesController < ApplicationController
     render json: @ranks
   end
 
+  def mail
+    mailer = ActionMailer::Base.new
+    mailer.mail(from: 'antal.bako@gmail.com', to: params[:email], subject: params[:subject], body: params[:message]).deliver
+    puts mail_params
+
+    # @mail = Mail.new(mail_params)
+    # raise
+    # @mail.request = request
+
+  #   if mailer.deliver
+  #     # re-initialize Home object for cleared form
+  #     puts true , notice: "Thanks for Your mail!"
+  #   else
+  #     puts error
+  #   end
+  end
+
   def create
     @rank = Rank.new(rank_params)
     @rank.save
   end
 
-  def mail
-    @mail = Mail.new(mail_params)
-    @mail.deliver
-
-    if @mail.deliver
-      # re-initialize Home object for cleared form
-      redirect_to root_path, notice: "Thanks for Your mail!"
-    else
-      redirect_to "/500.html", alert: "Something went wrong! Try again!"
-    end
-  end
 
   private
 
@@ -37,6 +43,6 @@ class PagesController < ApplicationController
   end
 
   def mail_params
-    params.permit(:subject, :name, :email, :message)
+    params.permit(:subject, :name, :email, :message, :page_id)
   end
 end

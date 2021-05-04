@@ -24,13 +24,14 @@ class Connect extends Component {
   }
 
   sendmail(){
+    debugger
     const form = document.querySelector('#emailForm');
     const name = document.querySelector('input[name="name"]').value;
     const email = document.querySelector('input[name="email"]').value;
     const subject = document.querySelector('input[name="subject"]').value;
-    const message = document.querySelector('input[name="message"]').value;
+    const message = document.querySelector('textarea[name="message"]').value;
     console.log('Thank you for your mail!');
-    form.action = `http://antalbako.codes/pages/1/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
+    form.action = `http://localhost:3000/pages/1/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
   }
 
   render(){
@@ -42,7 +43,7 @@ class Connect extends Component {
           <div className="connect row">
             <div className="col-sm-6">
               <h2 className="conh2">Wanna reach out? Send me an e-mail!</h2>
-              <form id="emailForm" onSubmit={this.sendmail} method='POST'>
+              <form id="emailForm" onSubmit={()=>this.sendmail()} method='POST'>
                 <div className="frame3"><input type="text" placeholder="Name" name="name" required="required"/></div>
                 <div className="frame3"><input type="email" placeholder="E-mail" name="email" required="required"/></div>
                 <div className="frame3"><input type="text" placeholder="Subject" name="subject"/></div>
