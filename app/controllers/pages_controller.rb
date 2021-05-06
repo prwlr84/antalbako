@@ -13,21 +13,39 @@ class PagesController < ApplicationController
     render json: @ranks
   end
 
-  def mail
-    mailer = ActionMailer::Base.new
-    mailer.mail(from: 'antal.bako@gmail.com', to: params[:email], subject: params[:subject], body: params[:message]).deliver
-    puts mail_params
+  def msg(x)
+    "<!DOCTYPE html>
+        <html>
+          <head>
+            <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+            <style>
+              /* Email styles need to be inline */
+            </style>
+          </head>
 
+          <body style='background-color: red'>
+            <div>THANKS FOR YOUR MAIL</div>
+            <p>#{x}</p>
+          </body>
+        </html>"
+  end
+
+  def mail
+    mailer = MailMailer.new
+    mailer.mail(
+      to: params[:email],
+      body: msg(params[:message])
+    ).deliver
     # @mail = Mail.new(mail_params)
     # raise
     # @mail.request = request
 
-  #   if mailer.deliver
-  #     # re-initialize Home object for cleared form
-  #     puts true , notice: "Thanks for Your mail!"
-  #   else
-  #     puts error
-  #   end
+    if mailer.mail.deliver
+      # re-initialize Home object for cleared form
+      redirect_to "/connect"
+    else
+      puts "error"
+    end
   end
 
   def create
