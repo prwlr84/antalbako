@@ -31,7 +31,7 @@ class Connect extends Component {
     const subject = document.querySelector('input[name="subject"]').value;
     const message = document.querySelector('textarea[name="message"]').value;
     console.log('Thank you for your mail!');
-    form.action = `http://localhost:3000/pages/1/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
+    form.action = `http://localhost:3000/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
   }
 
   render(){
