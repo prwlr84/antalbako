@@ -2,14 +2,21 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
   </head>
 
-  <body style="background-color: red">
-    <div>THANKS FOR YOUR MAIL</div>
-    <div>THANKS FOR YOUR MAIL</div>
-    <p><%= @body ? @body : false %></p>
+  <body style="color: red; font-family: 'verdana', sans-serif; text-align: center; background-color: black; padding: 5%">
+    <div style=" text-align: left;">
+      <h1 style="font-size: 84px; font-weight: 600; line-height: 1;margin: 0;">Thank<br>You!</h1>
+      <br>
+      <h3>Hi <%= @name %>!</h3>
+      <h3>I've just received Your message about <%= @sub %>:</h3>
+      <br>
+      <h4 style="border:1px solid red;background-color:rgba(255,0,0,0.4);width: fit-content;padding: 2%;"><%= @body %></h4>
+      <br>
+      <h3>Thanks again and I will get back to You ASAP if needed!</h3>
+      <br>
+      <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620399908/Untitled-2_vzhycp.png" alt="Antal Bako">
+      <br>
+    </div>
   </body>
 </html>

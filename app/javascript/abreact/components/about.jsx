@@ -21,6 +21,7 @@ class About extends Component {
       <div>
         <input className="chBox" type="checkbox"  style={{display: 'none'}}/>
         <div className="app screen">
+        <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', top: '-5%'}} className='d-none d-sm-block'/>
         <h1 className="title">About</h1>
         <div className="about row">
             <div className="about1">
