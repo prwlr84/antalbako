@@ -8,6 +8,8 @@ class MailMailer < ApplicationMailer
 
   def make(par)
     params = par
+    @name = params[:name]
+    @sub = params[:subject]
     @body = params[:message]
     mail(
       to: params[:email]

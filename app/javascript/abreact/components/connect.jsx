@@ -12,7 +12,6 @@ class Connect extends Component {
 
 
   componentDidMount(){
-    window.addEventListener("keydown", e => {redirect(e.keyCode), false});
     window.addEventListener('click', e => {redirect(e.target), false});
 
     document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
@@ -39,6 +38,7 @@ class Connect extends Component {
       <div>
         <input className="chBox" type="checkbox"  style={{display: 'none'}}/>
         <div className="app screen">
+          <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <h1 className="title">Connect</h1>
           <div className="connect row">
             <div className="col-sm-6">
@@ -47,7 +47,7 @@ class Connect extends Component {
                 <div className="frame3"><input type="text" placeholder="Name" name="name" required="required"/></div>
                 <div className="frame3"><input type="email" placeholder="E-mail" name="email" required="required"/></div>
                 <div className="frame3"><input type="text" placeholder="Subject" name="subject"/></div>
-                <div className="frame3"><textarea placeholder="Here comes your sweet message" name="message"required="required"/></div>
+                <div className="frame3"><textarea placeholder="Here comes the message" name="message"required="required"/></div>
                 <div className="frame3"><input type="submit" value="Send it!"/></div>
               </form>
               <div className="social">

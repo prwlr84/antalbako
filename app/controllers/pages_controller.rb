@@ -20,7 +20,15 @@ class PagesController < ApplicationController
 
   def mail
     @params = mail_params
-    MailMailer.make(@params).deliver
+    @mail = MailMailer.make(@params)
+    @mail.deliver
+
+    if @mail.deliver
+      redirect_to '/'
+    else
+      redirect_to '/connect'
+      puts 'error'
+    end
   end
 
   private

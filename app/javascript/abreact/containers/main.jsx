@@ -43,6 +43,7 @@ class Main extends Component {
     return (
       <div><input className="chBox" type="checkbox"  hidden/>
         <div className="app row screen">
+          <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <div className="egg">
             <h5></h5>
             <h6>Time: <span className="time"></span>s</h6>
@@ -56,7 +57,7 @@ class Main extends Component {
           <div className="main col-12 col-sm-6">
             { this.props.lang ? <Menu /> : <h1>Loading...</h1> }
           </div>
-          <div class='eggflash' style={{backgroundColor: 'rgba(255,0,0,0.3)', color: 'red', position: 'absolute', right: '5%', bottom: '5%', padding: '1%'}}>UP FOR A! EASTER EGG HUNT</div>
+          <div class='eggflash' style={{backgroundColor: 'rgba(255,0,0,0.3)', color: 'red', position: 'absolute', right: '5%', bottom: '5%', padding: '1%'}}>UP FOR A! EASTER EGG HUNT???</div>
         </div>
       </div>
     );
