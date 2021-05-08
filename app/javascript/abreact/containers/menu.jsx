@@ -12,7 +12,7 @@ class Menu extends Component {
 
     let typed = new Typed('#typed', {
       strings: [
-      `<p>${insert}!</p>^300\n<p class='hand'>I'm <span><span class="x">A</span>ntal Bako</span></p>^300\n<p>Full Stack Web Developer</p>^300\n<p>Please, choose from the following:</p>^300\n<p class="opt1">1 | About</p>^300\n<p class="opt2">2 | Work</p>^300\n<p class="opt3">3 | Connect</p>^300\n<input type="text" autofocus  />`],
+      `<p>${insert}!</p>^300\n<p class='hand link'>I'm <span><span class="x">A</span>ntal Bako</span></p>^300\n<p>Full Stack Web Developer</p>^300\n<p>Please, choose from the following:</p>^300\n<p class="opt1 link">1 | About</p>^300\n<p class="opt2 link">2 | Work</p>^300\n<p class="opt3 link">3 | Connect</p>^300\n<input type="text" autofocus  />`],
       typeSpeed: 20,
       loop: false,
       showCursor: false

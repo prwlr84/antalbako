@@ -29,7 +29,6 @@ class Connect extends Component {
     const email = document.querySelector('input[name="email"]').value;
     const subject = document.querySelector('input[name="subject"]').value;
     const message = document.querySelector('textarea[name="message"]').value;
-    console.log('Thank you for your mail!');
     form.action = `http://antalbako.codes/mail?subject=${subject}&name=${name}&email=${email}&message=${message}`;
   }
 
@@ -60,9 +59,9 @@ class Connect extends Component {
               </div>
             </div>
           </div>
-          <h2 className='button0'>0</h2>
-          <h2 className='button1'>1</h2>
-          <h2 className='button2'>2</h2>
+          <h2 className='button0 link'>0</h2>
+          <h2 className='button1 link'>1</h2>
+          <h2 className='button2 link'>2</h2>
           <h2 className='button0-mob'>0|HOME</h2>
           <h2 className='button1-mob'>1|ABOUT</h2>
           <h2 className='button2-mob'>2|WORK</h2>

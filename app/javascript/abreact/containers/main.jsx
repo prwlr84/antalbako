@@ -19,6 +19,7 @@ class Main extends Component {
   stater(x){
     if (x > 0){
       this.setState({rank: true, score: x});
+      document.querySelector('.screen').style.overflowY = 'scroll'
     } else if (x === 0){
       this.setState({rank: false, score: x});
     };
@@ -57,7 +58,7 @@ class Main extends Component {
           <div className="main col-12 col-sm-6">
             { this.props.lang ? <Menu /> : <h1>Loading...</h1> }
           </div>
-          <div class='eggflash' style={{backgroundColor: 'rgba(255,0,0,0.3)', color: 'red', position: 'absolute', right: '5%', top: '5%', padding: '1%'}}>UP FOR A! EASTER EGG HUNT???</div>
+          <div className='eggflash' style={{backgroundColor: 'rgba(255,0,0,0.3)', color: 'red', position: 'absolute', right: '5%', top: '5%', padding: '1%'}}>UP FOR A! EASTER EGG HUNT???</div>
         </div>
       </div>
     );
