@@ -12,6 +12,9 @@ div.alert{
   color: red;
   background-color: rgba(255,0,0,0.3);
 }
+.link{
+  cursor: pointer;
+}
 
 body {
   margin: 0;
@@ -26,6 +29,15 @@ body {
 }
 div.app::-webkit-scrollbar, div.about::-webkit-scrollbar {
   display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px black inset !important;
+ -webkit-text-fill-color: red !important;
 }
 
 #portfolio_app {
@@ -47,6 +59,7 @@ div.app {
   font-family: "Orbitron", sans-sherif;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 h1{

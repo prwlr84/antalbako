@@ -16,10 +16,7 @@ import langReducer from './reducers/lang_reducer.js';
 const app = document.querySelector('#portfolio_app');
 const initialState = {
   //ip: JSON.parse(app.dataset.ip),
-  //ip: gon.ip,
-  //ip: '170.253.46.238',
-  ip: '130',
-  //ip: '2.16.8.255',
+  ip: gon.ip,
   lang: '',
   ranks: gon.ranks,
   work: gon.work
@@ -31,7 +28,7 @@ const reducers = combineReducers({
   lang: langReducer
 });
 
-const middlewares = applyMiddleware(logger, reduxPromise);
+const middlewares = applyMiddleware(reduxPromise);
 
 // render an instance of the component in the DOM
 ReactDOM.render(

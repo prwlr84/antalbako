@@ -37,7 +37,6 @@ const game = (callback) => {
     function timer(){
         let sixty = 60;
         const loop = function() {
-          console.log(score);
           parseInt(timeDisp.textContent) > 0 ? timeDisp.textContent = sixty : 0;
           sixty--;
           innerFunc(sixty,score);
@@ -53,7 +52,7 @@ const game = (callback) => {
     };
 
     startB.addEventListener('click', () => {init();timer();callback(0)});
-    exitB.addEventListener('click', ()=>{clearInterval(interval); hide(egg); callback(0)});
+    exitB.addEventListener('click', ()=>{clearInterval(interval); hide(egg); callback(0); document.querySelector('.screen').style.overflowY = 'hidden'});
 
 }
 

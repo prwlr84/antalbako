@@ -32,9 +32,9 @@ class Work extends Component {
       <div className="col-sm-6" id="list">
         {this.props.work.map(e => {return(
           <div key={e.name} className="frame3">
-            <img src={e.img} alt="" onClick={() => this.toggleList(e.name)} />
-            <h3 onClick={() => this.toggleList(e.name)}>{e.name}</h3>
-            <p onClick={() => this.redirect(e.url)}>{e.url}</p>
+            <img className="link" src={e.img} alt="" onClick={() => this.toggleList(e.name)} />
+            <h3 className="link" onClick={() => this.toggleList(e.name)}>{e.name}</h3>
+            <p className="link" onClick={() => this.redirect(e.url)}>{e.url}</p>
           </div>
         )})}
       </div>
@@ -51,11 +51,11 @@ class Work extends Component {
       <div className="col-sm-6" id="detail">
         <div className="frame">
           <h1>{current.name}</h1>
-          <h3 onClick={() => this.redirect(current.url)}>{current.url}</h3>
+          <h3 className="link" onClick={() => this.redirect(current.url)}>{current.url}</h3>
           <img src={current.img} alt=""/>
           {JSON.parse(current.desc).map(e => {return(<h4 key={e}>{e}</h4>)})}
           <br/>
-          <h5 onClick={() => this.toggleList("")}>GO BACK</h5>
+          <h5 className="link" onClick={() => this.toggleList("")}>GO BACK</h5>
         </div>
       </div>
       )
@@ -78,7 +78,7 @@ class Work extends Component {
       <div>
         <input className="chBox" type="checkbox"  style={{display: 'none'}}/>
         <div className="app screen">
-          <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', left: '-7%', bottom: '-5%'}} className='d-none d-sm-block'/>
+          <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', left: '-5%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <h1 className="title">Work</h1>
           <div className="work row">
             <div className="col-sm-6">
@@ -87,12 +87,12 @@ class Work extends Component {
             <div style={{overflowX: 'visible', minHeight: '50px', width: '100%', color: 'red', textAlign: 'end'}} className="d-sm-none spacer">PULL ME UP</div>
             {this.state.list ? this.list() : this.detail(this.state.current)}
           </div>
-          <h2 className='button0'>0</h2>
-          <h2 className='button1'>1</h2>
-          <h2 className='button3'>3</h2>
-          <h2 className='button0-mob'>0|HOME</h2>
-          <h2 className='button1-mob'>1|ABOUT</h2>
-          <h2 className='button3-mob'>3|CONNECT</h2>
+          <h2 className='button0 link'>0</h2>
+          <h2 className='button1 link'>1</h2>
+          <h2 className='button3 link'>3</h2>
+          <h2 className='button0-mob link'>0|HOME</h2>
+          <h2 className='button1-mob link'>1|ABOUT</h2>
+          <h2 className='button3-mob link'>3|CONNECT</h2>
         </div>
       </div>
     )

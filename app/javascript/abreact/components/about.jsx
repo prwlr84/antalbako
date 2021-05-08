@@ -115,12 +115,12 @@ class About extends Component {
               </div>
             </div>
         </div>
-          <h2 className='button0'>0</h2>
-          <h2 className='button2'>2</h2>
-          <h2 className='button3'>3</h2>
-          <h2 className='button0-mob'>0|HOME</h2>
-          <h2 className='button2-mob'>2|WORK</h2>
-          <h2 className='button3-mob'>3|CONNECT</h2>
+          <h2 className='button0 link'>0</h2>
+          <h2 className='button2 link'>2</h2>
+          <h2 className='button3 link'>3</h2>
+          <h2 className='button0-mob link'>0|HOME</h2>
+          <h2 className='button2-mob link'>2|WORK</h2>
+          <h2 className='button3-mob link'>3|CONNECT</h2>
         </div>
       </div>)
   }
