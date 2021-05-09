@@ -1,0 +1,6 @@
+meta_product_name: "Antal Bako"
+meta_title: "Antal Bako - Full Stack Web Developer"
+meta_description: "Hi there! My name is Antal Bako, Full Stack Web Developer. Experienced in Javascript, Ruby on Rails, React, relational/non-relational databases and much more."
+meta_keywords: "antal,bako,antal bako,antal bakó,portfolio,development,developer,full-stack,front-end,back-end,experience,HTML,css,javascript,ruby on rails,sql,mongo,freelance"
+meta_image: "https://res.cloudinary.com/prwlr84/image/upload/v1620564510/meta_evar3a.png" # should exist in `app/assets/images/`
+twitter_account: "@prwlr84"   # required for Twitter Cards
