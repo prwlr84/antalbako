@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import redirect from '../actions/redirect';
 import buttonTyper from '../actions/button_typer';
+import backTyper from '../actions/back_typer';
 
 
 class Work extends Component {
@@ -19,7 +20,7 @@ class Work extends Component {
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
     window.addEventListener('click', e => {redirect(e.target), false});
 
-    document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
+    document.querySelector('.button0').addEventListener('mouseover', ()=> {backTyper('HOME|0', document.querySelector('.button0') )});
     document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
     document.querySelector('.button1').addEventListener('mouseover', ()=> {buttonTyper('1|ABOUT', document.querySelector('.button1') )});
     document.querySelector('.button1').addEventListener('mouseout', ()=> {document.querySelector('.button1').innerHTML = '1'});
@@ -76,7 +77,7 @@ class Work extends Component {
   render(){
     return(
       <div>
-        <input className="chBox" type="checkbox"  style={{display: 'none'}}/>
+        <input className="chBox" type="checkbox" hidden/>
         <div className="app screen">
           <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', left: '-5%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <h1 className="title">Work</h1>

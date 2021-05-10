@@ -24,9 +24,9 @@ class PagesController < ApplicationController
     @mail.deliver
 
     if @mail.deliver
-      redirect_to '/'
+      redirect_to '/connect', alert: "It is sent! Thank You!"
     else
-      redirect_to '/connect'
+      redirect_to '/connect', alert: "Something went wrong... Try again!"
       puts 'error'
     end
   end

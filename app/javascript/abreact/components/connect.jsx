@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import redirect from '../actions/redirect';
 import buttonTyper from '../actions/button_typer';
+import backTyper from '../actions/back_typer';
 
 class Connect extends Component {
   constructor(props) {
     super(props);
-    //this.state = { list: true, current: "" };
-
-    //this. = this..bind(this);
   }
 
 
   componentDidMount(){
     window.addEventListener('click', e => {redirect(e.target), false});
 
-    document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
+    document.querySelector('.button0').addEventListener('mouseover', ()=> {backTyper('HOME|0', document.querySelector('.button0') )});
     document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
     document.querySelector('.button1').addEventListener('mouseover', ()=> {buttonTyper('1|ABOUT', document.querySelector('.button1') )});
     document.querySelector('.button1').addEventListener('mouseout', ()=> {document.querySelector('.button1').innerHTML = '1'});
-    document.querySelector('.button2').addEventListener('mouseover', ()=> {buttonTyper('2|WORK', document.querySelector('.button2') )});
+    document.querySelector('.button2').addEventListener('mouseover', ()=> {backTyper('WORK|2', document.querySelector('.button2') )});
     document.querySelector('.button2').addEventListener('mouseout', ()=> {document.querySelector('.button2').innerHTML = '2'});
   }
 
@@ -35,7 +33,7 @@ class Connect extends Component {
   render(){
     return(
       <div>
-        <input className="chBox" type="checkbox"  style={{display: 'none'}}/>
+        <input className="chBox" type="checkbox" hidden/>
         <div className="app screen">
           <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <h1 className="title">Connect</h1>

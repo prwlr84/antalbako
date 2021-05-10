@@ -27,9 +27,7 @@
   </head>
 
   <body>
-
-    <%= render 'shared/flashes' %>
-
+    <%= react_component 'AlertCont', messages: flash_messages %>
     <%= yield %>
   </body>
 </html>

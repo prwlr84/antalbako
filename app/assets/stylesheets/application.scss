@@ -7,13 +7,15 @@
 @import 'partials/work';
 @import 'partials/connect';
 @import 'partials/egg';
+@import 'partials/egg';
+@import 'partials/flash';
 
-div.alert{
-  color: red;
-  background-color: rgba(255,0,0,0.3);
-}
 .link{
   cursor: pointer;
+}
+
+.overY{
+  overflow-y: hidden;
 }
 
 body {
@@ -38,6 +40,7 @@ input:-webkit-autofill:active
 {
  -webkit-box-shadow: 0 0 0 30px black inset !important;
  -webkit-text-fill-color: red !important;
+ -webkit-font-family: "Orbitron", sans-sherif;
 }
 
 #portfolio_app {
@@ -59,7 +62,6 @@ div.app {
   font-family: "Orbitron", sans-sherif;
   margin: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 h1{
@@ -163,3 +165,4 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
   animation: turn-off 0.55s $ease-out-quint;
   animation-fill-mode:forwards;
 }
+

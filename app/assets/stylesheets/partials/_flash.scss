@@ -1,0 +1,13 @@
+div[data-react-class=AlertCont]{
+  position: absolute;
+  left: 6%;
+  bottom: 9%;
+
+  div.alert{
+  color: red;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-color: red;
+  z-index: 5;
+  font-family: "Orbitron", sans-sherif;
+  }
+}
