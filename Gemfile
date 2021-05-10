@@ -37,7 +37,7 @@ gem 'easy_translate'
 gem 'faker'
 gem 'gon'
 gem 'mail_form'
-
+gem 'react-rails'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

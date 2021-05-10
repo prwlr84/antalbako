@@ -124,13 +124,21 @@ div.work{
 }
 
 div.frame {
+  position: relative;
   transition: all .4s ease-in-out;
   align-self: center;
   img {
     max-width: 100%;
+    margin: 3% auto;
   }
 
   h4{
     text-align: center;
   }
+}
+
+h5.link{
+  position: absolute;
+  top: 5%;
+  right: 0;
 }

@@ -19,7 +19,7 @@ class Main extends Component {
   stater(x){
     if (x > 0){
       this.setState({rank: true, score: x});
-      document.querySelector('.screen').style.overflowY = 'scroll'
+      document.querySelector('.overY').style.overflowY = 'scroll'
     } else if (x === 0){
       this.setState({rank: false, score: x});
     };
@@ -43,7 +43,7 @@ class Main extends Component {
   render() {
     return (
       <div><input className="chBox" type="checkbox"  hidden/>
-        <div className="app row screen">
+        <div className="app row screen overY">
           <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <div className="egg">
             <h5></h5>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import redirect from '../actions/redirect';
 import buttonTyper from '../actions/button_typer';
+import backTyper from '../actions/back_typer';
 
 class About extends Component {
   componentDidMount(){
@@ -8,9 +9,9 @@ class About extends Component {
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
     window.addEventListener('click', e => {redirect(e.target), false});
 
-    document.querySelector('.button0').addEventListener('mouseover', ()=> {buttonTyper('0|HOME', document.querySelector('.button0') )});
+    document.querySelector('.button0').addEventListener('mouseover', ()=> {backTyper('HOME|0', document.querySelector('.button0') )});
     document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
-    document.querySelector('.button2').addEventListener('mouseover', ()=> {buttonTyper('2|WORK', document.querySelector('.button2') )});
+    document.querySelector('.button2').addEventListener('mouseover', ()=> {backTyper('WORK|2', document.querySelector('.button2') )});
     document.querySelector('.button2').addEventListener('mouseout', ()=> {document.querySelector('.button2').innerHTML = '2'});
     document.querySelector('.button3').addEventListener('mouseover', ()=> {buttonTyper('3|CONNECT', document.querySelector('.button3') )});
     document.querySelector('.button3').addEventListener('mouseout', ()=> {document.querySelector('.button3').innerHTML = '3'});
@@ -19,7 +20,7 @@ class About extends Component {
   render(){
     return(
       <div>
-        <input className="chBox" type="checkbox"  style={{display: 'none'}}/>
+        <input className="chBox" type="checkbox" hidden/>
         <div className="app screen">
         <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', top: '-5%'}} className='d-none d-sm-block'/>
         <h1 className="title">About</h1>
@@ -28,7 +29,7 @@ class About extends Component {
               <div className="about-text1">
                 <h2>Hi there!</h2>
                 <h3>My name is Antal Bako</h3>
-                <h4>I have been communicating with humans as a profession for more than 10 years, let's try with computers too!<br/>
+                <h4>Instead of communicating with humans, let's do it now with computers!<br/>
                   After more than a decade in sales, felt time for a change.<br/>
                   I have decided to return my old passion and successfully completed Le Wagon's Web Development bootcamp in Amsterdam. I had great fun with all the challenges, but the camp is over and I'm always up for new ones!<br/>
                   Looking for new opportunities in Web Development, with experience in React JS, Ruby on Rails, AJAX, relational and non-relational databases and more. Absolutely open for new languages with excellent capacity to retain new things.
@@ -89,7 +90,7 @@ class About extends Component {
               <div className="about-text3">
                 <h4>In my free time I love to pedal, flat like Holland or hills like in Andalucia, doesn't matter.<br/>
                   Like to watch movies a lot, Netflix is gettig boring... :D<br/>
-                  And music! Everything from classics through jazz to electronic music, but no mainstream please!!!</h4>
+                  And music! <br/>Everything from classics through jazz to electronic music, <br/> but no mainstream please!!!</h4>
               </div>
               <div className="frame3">
                 <div className="blk">
