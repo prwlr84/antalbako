@@ -195,9 +195,18 @@ div.about {
       div.about-text1{
         position: absolute;
         right: 12%;
-        top: 20%;
-        max-width: 37vw;
+        top: 10%;
+        max-width: 35vw;
         z-index: 5;
+        text-align: right;
+
+        h4{
+          margin-top: 5%;
+        }
+
+        h3{
+          margin-top: 3%;
+        }
       }
 
       h2 {
