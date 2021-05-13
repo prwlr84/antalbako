@@ -150,6 +150,7 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
     filter:brightness(50);
   }
 }
+
 .screen{
   width:100%;
   height:100%;
@@ -157,7 +158,7 @@ $ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
 }
 .chBox~.screen{
   animation: turn-on 4s linear;
-  animation-fill-mode:forwards;
+  animation-fill-mode:backwards;
 }
 
 .chBox:checked~.screen{

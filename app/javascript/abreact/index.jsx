@@ -35,10 +35,12 @@ ReactDOM.render(
   <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={createBrowserHistory()}>
       <Switch>
-        <Route path="/" exact component={Main} />
-        <Route path="/about" exact component={About} />
-        <Route path="/work" exact component={Work} />
-        <Route path="/connect" exact component={Connect} />
+        <Route >
+          <Route path="/" exact component={Main}/>
+          <Route path="/about" exact component={About} />
+          <Route path="/work" exact component={Work} />
+          <Route path="/connect" exact component={Connect} />
+        </Route>
       </Switch>
     </Router>
   </Provider>,
