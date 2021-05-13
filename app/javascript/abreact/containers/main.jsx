@@ -26,6 +26,9 @@ class Main extends Component {
   }
 
   componentDidMount(){
+    const a = document.querySelector('.chBox');
+    a.checked = false;
+
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
 
     window.addEventListener('click', e => {redirect(e.target), false });
@@ -40,9 +43,15 @@ class Main extends Component {
     }
   }
 
+  componentWillUnmount(){
+    const a = document.querySelector('.chBox');
+    a.checked = false;
+    console.log('heremain');
+  }
+
   render() {
     return (
-      <div><input className="chBox" type="checkbox"  hidden/>
+      <div><input className="chBox" type="checkbox" hidden/>
         <div className="app row screen overY">
           <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <div className="egg">

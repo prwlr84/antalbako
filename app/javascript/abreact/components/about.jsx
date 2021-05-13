@@ -16,12 +16,18 @@ class About extends Component {
     document.querySelector('.button3').addEventListener('mouseout', ()=> {document.querySelector('.button3').innerHTML = '3'});
   }
 
+  componentWillUnmount(){
+    const a = document.querySelector('.chBox');
+    a.checked = false;
+    console.log('here');
+  }
+
   render(){
     return(
       <div>
         <input className="chBox" type="checkbox" hidden/>
         <div className="app screen">
-        <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', top: '-5%'}} className='d-none d-sm-block'/>
+        <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'fixed', right: '-3%', top: '-5%'}} className='d-none d-sm-block'/>
         <h1 className="title">About</h1>
         <div className="about row">
             <div className="about1">
@@ -87,7 +93,7 @@ class About extends Component {
             </div>
             <div className="about3">
               <div className="about-text3">
-                <h4>In my free time I love to pedal, flat like Holland or hills like Andalucia, doesn't matter.<br/>
+                <h4>In my free time I love to pedal, flat like Holland<br/> or hills like Andalucia, doesn't matter.<br/>
                   Like to watch movies a lot, Netflix is gettig boring :D<br/>
                   And music! <br/>Everything from classics through jazz to electronic music, <br/> but no mainstream please!!!</h4>
               </div>
