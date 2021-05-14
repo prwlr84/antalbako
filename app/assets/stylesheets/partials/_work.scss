@@ -118,6 +118,10 @@ div.work{
 }
 
 @media only screen and (min-width: 576px) {
+  .overY{
+    overflow-y: hidden;
+  }
+
   h2.button1-mob {
     display: none;
   }

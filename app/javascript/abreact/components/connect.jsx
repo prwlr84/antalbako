@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import redirect from '../actions/redirect';
-import buttonTyper from '../actions/button_typer';
-import backTyper from '../actions/back_typer';
+import buttonnav from '../actions/buttonnav';
+
+
 
 class Connect extends Component {
   constructor(props) {
@@ -10,18 +11,22 @@ class Connect extends Component {
 
 
   componentDidMount(){
+    window.addEventListener('beforeunload', this.componentCleanup);
     window.addEventListener('click', e => {redirect(e.target), false});
+    buttonnav({'.button0':'HOME|0', '.button1':'1|ABOUT', '.button2':'WORK|2'});
+  }
 
-    document.querySelector('.button0').addEventListener('mouseover', ()=> {backTyper('HOME|0', document.querySelector('.button0') )});
-    document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
-    document.querySelector('.button1').addEventListener('mouseover', ()=> {buttonTyper('1|ABOUT', document.querySelector('.button1') )});
-    document.querySelector('.button1').addEventListener('mouseout', ()=> {document.querySelector('.button1').innerHTML = '1'});
-    document.querySelector('.button2').addEventListener('mouseover', ()=> {backTyper('WORK|2', document.querySelector('.button2') )});
-    document.querySelector('.button2').addEventListener('mouseout', ()=> {document.querySelector('.button2').innerHTML = '2'});
+  componentCleanup(){
+    const a = document.querySelector('.chBox');
+    a.checked = false;
+  }
+
+  componentWillUnmount(){
+    this.componentCleanup();
+    window.removeEventListener('beforeunload', this.componentCleanup); // remove the event handler for normal unmounting
   }
 
   sendmail(){
-    debugger
     const form = document.querySelector('#emailForm');
     const name = document.querySelector('input[name="name"]').value;
     const email = document.querySelector('input[name="email"]').value;
@@ -34,7 +39,7 @@ class Connect extends Component {
     return(
       <div>
         <input className="chBox" type="checkbox" hidden/>
-        <div className="app screen">
+        <div className="app screen overY">
           <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', right: '-3%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <h1 className="title">Connect</h1>
           <div className="connect row">
