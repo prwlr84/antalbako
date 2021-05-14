@@ -35,7 +35,7 @@ ReactDOM.render(
   <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={createBrowserHistory()}>
       <Switch>
-        <Route >
+        <Route>
           <Route path="/" exact component={Main}/>
           <Route path="/about" exact component={About} />
           <Route path="/work" exact component={Work} />

@@ -26,11 +26,8 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    const a = document.querySelector('.chBox');
-    a.checked = false;
-
+    window.addEventListener('beforeunload', this.componentCleanup);
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
-
     window.addEventListener('click', e => {redirect(e.target), false });
 
     this.props.setLang(this.props.ip);
@@ -43,11 +40,15 @@ class Main extends Component {
     }
   }
 
-  componentWillUnmount(){
+  componentCleanup(){
     const a = document.querySelector('.chBox');
     a.checked = false;
-    console.log('heremain');
   }
+
+  componentWillUnmount() {
+      this.componentCleanup();
+      window.removeEventListener('beforeunload', this.componentCleanup); // remove the event handler for normal unmounting
+    }
 
   render() {
     return (

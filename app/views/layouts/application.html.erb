@@ -27,7 +27,9 @@
   </head>
 
   <body>
-    <%= react_component 'AlertCont', messages: flash_messages %>
+    <% if flash_messages %>
+      <%= react_component 'AlertCont', messages: flash_messages %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

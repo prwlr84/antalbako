@@ -3,8 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import redirect from '../actions/redirect';
-import buttonTyper from '../actions/button_typer';
-import backTyper from '../actions/back_typer';
+import buttonnav from '../actions/buttonnav';
 
 
 class Work extends Component {
@@ -17,16 +16,21 @@ class Work extends Component {
 
 
   componentDidMount(){
+    window.addEventListener('beforeunload', this.componentCleanup);
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
     window.addEventListener('click', e => {redirect(e.target), false});
+    buttonnav({'.button0':'HOME|0', '.button1':'1|ABOUT', '.button3':'3|CONNECT'});
+  }
 
-    document.querySelector('.button0').addEventListener('mouseover', ()=> {backTyper('HOME|0', document.querySelector('.button0') )});
-    document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
-    document.querySelector('.button1').addEventListener('mouseover', ()=> {buttonTyper('1|ABOUT', document.querySelector('.button1') )});
-    document.querySelector('.button1').addEventListener('mouseout', ()=> {document.querySelector('.button1').innerHTML = '1'});
-    document.querySelector('.button3').addEventListener('mouseover', ()=> {buttonTyper('3|CONNECT', document.querySelector('.button3') )});
-    document.querySelector('.button3').addEventListener('mouseout', ()=> {document.querySelector('.button3').innerHTML = '3'});
- }
+  componentCleanup(){
+    const a = document.querySelector('.chBox');
+    a.checked = false;
+  }
+
+  componentWillUnmount() {
+      this.componentCleanup();
+      window.removeEventListener('beforeunload', this.componentCleanup); // remove the event handler for normal unmounting
+  }
 
   list(){
     return(
@@ -78,7 +82,7 @@ class Work extends Component {
     return(
       <div>
         <input className="chBox" type="checkbox" hidden/>
-        <div className="app screen">
+        <div className="app screen overY">
           <img src="https://res.cloudinary.com/prwlr84/image/upload/v1620397543/signatureLogo_w3jejj_iscenj.png" style={{position: 'absolute', left: '-5%', bottom: '-5%'}} className='d-none d-sm-block'/>
           <h1 className="title">Work</h1>
           <div className="work row">

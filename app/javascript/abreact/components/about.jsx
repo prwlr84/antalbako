@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import redirect from '../actions/redirect';
-import buttonTyper from '../actions/button_typer';
-import backTyper from '../actions/back_typer';
+import buttonnav from '../actions/buttonnav';
 
 class About extends Component {
+  componentCleanup(){
+    const a = document.querySelector('.chBox');
+    a.checked = false;
+  }
+
   componentDidMount(){
     window.addEventListener("keydown", e => {redirect(e.keyCode), false});
     window.addEventListener('click', e => {redirect(e.target), false});
-
-    document.querySelector('.button0').addEventListener('mouseover', ()=> {backTyper('HOME|0', document.querySelector('.button0') )});
-    document.querySelector('.button0').addEventListener('mouseout', ()=> {document.querySelector('.button0').innerHTML = '0'});
-    document.querySelector('.button2').addEventListener('mouseover', ()=> {backTyper('WORK|2', document.querySelector('.button2') )});
-    document.querySelector('.button2').addEventListener('mouseout', ()=> {document.querySelector('.button2').innerHTML = '2'});
-    document.querySelector('.button3').addEventListener('mouseover', ()=> {buttonTyper('3|CONNECT', document.querySelector('.button3') )});
-    document.querySelector('.button3').addEventListener('mouseout', ()=> {document.querySelector('.button3').innerHTML = '3'});
+    window.addEventListener('beforeunload', this.componentCleanup);
+    buttonnav({'.button0':'HOME|0', '.button2':'WORK|2', '.button3':'3|CONNECT'});
   }
 
-  componentWillUnmount(){
-    const a = document.querySelector('.chBox');
-    a.checked = false;
-    console.log('here');
+
+
+  componentWillUnmount() {
+    this.componentCleanup();
+    window.removeEventListener('beforeunload', this.componentCleanup); // remove the event handler for normal unmounting
   }
+
 
   render(){
     return(
@@ -36,8 +37,8 @@ class About extends Component {
                 <h3>My name is Antal Bako</h3>
                 <h4>Instead of humans, let's communicate now with computers!<br/>
                   After more than a decade in sales, felt time for a change.<br/>
-                  I have decided to return my old passion and successfully completed Le Wagon's Web Development bootcamp in Amsterdam. I had great fun with all the challenges (and no support tickets :) ) and I'm always ready for new ones.  <br/>
-                  Looking for opportunities in Web Development, with experience in React JS, Ruby on Rails, AJAX, relational and non-relational databases and more.
+                  I have decided to return my old passion and successfully completed Le Wagon's Web Development bootcamp in Amsterdam.<br/> I had great fun (and no support tickets :)) with all the challenges and I'm always ready for new ones.  <br/>
+                  Looking for opportunities both in Frontend and Backend Development, with experience in React JS, Ruby on Rails, AJAX, relational and non-relational databases and much more.
                 </h4>
               </div>
               <div className="frame3">
