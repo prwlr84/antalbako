@@ -37,8 +37,8 @@ class About extends Component {
                 <h3>My name is Antal Bako</h3>
                 <h4>Instead of humans, let's communicate now with computers!<br/>
                   After more than a decade in sales, felt time for a change.<br/>
-                  I have decided to return my old passion and successfully completed Le Wagon's Web Development bootcamp in Amsterdam.<br/> I had great fun (and no support tickets :)) with all the challenges and I'm always ready for new ones.  <br/>
-                  Looking for opportunities both in Frontend and Backend Development, with experience in React JS, Ruby on Rails, AJAX, relational and non-relational databases and much more.
+                  I have decided to return my old passion and successfully finished Le Wagon's Web Development Bootcamp in Amsterdam.<br/> I had great fun (and no support tickets :)) with all the challenges and I'm always ready for new ones.  <br/>
+                  Looking for opportunities both in Frontend and Backend Development, with experience in React JS, Ruby on Rails, AJAX, relational and non-relational databases, and much more.
                 </h4>
               </div>
               <div className="frame3">
@@ -88,15 +88,15 @@ class About extends Component {
                 </div>
               </div>
               <div className="about-text2">
-                <h4>I was born in a town in the middle of the Hungarian lowlands, then I moved to Budapest for my studies at the age of 18, and I lived there for 10 years.<br/> Next stop was the evenly
-                flat Amsterdam for almost 10 another years and currently relocated to Spain to try a bit more "elevated" lifestyle in the mountains.</h4>
+                <h4>I'm from a town in the middle of the Hungarian lowlands. At the age of 18, I moved to Budapest for my studies, and I lived there for 10. years.<br/>
+                The next stop was the evenly flat Amsterdam for almost 10. other years and currently relocated to Spain to try a bit more "elevated" lifestyle in the mountains.</h4>
               </div>
             </div>
             <div className="about3">
               <div className="about-text3">
-                <h4>In my free time I love to pedal, flat like Holland<br/> or hills like Andalucia, doesn't matter.<br/>
-                  Like to watch movies a lot, Netflix is gettig boring :D<br/>
-                  And music! <br/>Everything from classics through jazz to electronic music, <br/> but no mainstream please!!!</h4>
+                <h4>In my free time, I love to pedal. On flats like Holland<br/> or hills like Andalucia, it doesn't matter.<br/>
+                  I Like to watch movies a lot, Netflix is getting boring :D<br/>
+                  And music! <br/>Everything from classics through jazz to electronic music, <br/> but no mainstream, please!!!</h4>
               </div>
               <div className="frame3">
                 <div className="blk">
