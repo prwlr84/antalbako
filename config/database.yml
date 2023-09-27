@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: antalbako_production
-  username: antalbako
-  password: <%= ENV['ANTALBAKO_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

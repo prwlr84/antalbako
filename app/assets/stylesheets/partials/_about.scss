@@ -70,15 +70,16 @@ div.app{
 }
 
 div.about {
-  margin: 10% auto;
+  margin: 1% auto;
   display: flex;
   font-family: "Orbitron", sans-sherif;
   color: red;
   background-color: transparent;
-  overflow: hidden;
+  overflow-y: scroll;
   flex-wrap: wrap;
   position: absolute;
   width: 90%;
+  height: 100%;
 
   h4{
     font-size: 20px;
@@ -233,16 +234,16 @@ div.about {
 
       div.about-text2{
         position: absolute;
-        left: 30%;
-        top: 40%;
-        max-width: 40vw;
+        left: 35%;
+        top: 25%;
+        max-width: 25vw;
         z-index: 5;
       }
     }
 
     div.about3{
       position: relative;
-      min-height: 50vh;
+      min-height: 80vh;
       width:100%;
 
       div.frame3:nth-of-type(2){
@@ -267,8 +268,8 @@ div.about {
       div.about-text3{
         position: relative;
         left: 12%;
-        top: 15%;
-        max-width: 40vw;
+        top: 3%;
+        max-width: 30vw;
         z-index: 5;
       }
     }
@@ -420,7 +421,7 @@ div.blk {
   position: absolute;
   width: calc(100% + 10px * 2);
   height: calc(100% + 5px * 2);
-  background: url(https://res.cloudinary.com/prwlr84/image/upload/v1615874393/IMG_20190908_224113_zrth35.jpg) no-repeat 50% 0;
+  background: url(https://res.cloudinary.com/prwlr84/image/upload/v1615874393/IMG_20181010_085053_owroqb.jpg) no-repeat 50% 0;
   background-color: transparent;
   background-size: cover;
   transform: translate3d(0,0,0);
@@ -431,7 +432,7 @@ div.blk {
   position: absolute;
   width: calc(100% + 10px * 2);
   height: calc(100% + 5px * 2);
-  background: url(https://res.cloudinary.com/prwlr84/image/upload/v1615874393/IMG_20181010_085053_owroqb.jpg) no-repeat 50% 0;
+  background: url(https://res.cloudinary.com/prwlr84/image/upload/v1615874393/IMG_20190908_224113_zrth35.jpg) no-repeat 50% 0;
   background-color: transparent;
   background-size: cover;
   transform: translate3d(0,0,0);
