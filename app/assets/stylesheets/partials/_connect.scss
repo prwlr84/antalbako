@@ -30,7 +30,6 @@ div.app{
 }
 
 div.connect{
-  margin-top: 5%;
   flex-direction: column;
   font-family: "Orbitron", sans-sherif;
   color: red;
@@ -42,6 +41,12 @@ div.connect{
   padding: 20px;
   display: flex;
   align-items: center;
+
+  #emailForm {
+    input, textarea {
+      font-family: "Orbitron", sans-sherif;
+    }
+  }
 
   div.frame3{
     margin: 20px auto;
