@@ -3,6 +3,8 @@ require_relative "boot"
 require "rails"
 require 'action_mailer/railtie'
 require "active_storage/engine"
+require "action_cable/engine"
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
